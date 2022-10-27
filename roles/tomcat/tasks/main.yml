@@ -36,7 +36,7 @@
   template: src=server.xml dest=/usr/share/tomcat/conf/
 - name: check if URL is reachable from this host
   ansible.builtin.uri:
-     url: "ip_response.content:8080/"
+     url: "{{ip_response.content}}:8080/"
   register: _result
   ignore_errors: yes
 
