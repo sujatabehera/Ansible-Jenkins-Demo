@@ -1,0 +1,8 @@
+---
+- name: check for java installation
+  stat:
+     path: /usr/bin/java
+  register: result
+- name: Install Java
+  yum: name=java-1.7.0-openjdk state=present   
+  when: not result.stat.exists
