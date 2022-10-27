@@ -1,14 +1,17 @@
 ---
-- name: Check if java is installed
-        command: java -version
-        register: java_result
-        ignore_errors: True		
-    - debug:
-          msg: "Failed - Java is not installed"
-          when: java_result is failed		
-    - debug:
-          msg: "Success - Java is installed"
-          when:  java_result is success
+- name: check
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+      - name: print a message
+       command: java -version 2>&1 | grep version | awk '{print $3}' | sed 's/"//g'
+       register: version
+       ignore_errors: True		
+      - name: print java version
+       debug:
+       msg: " {{ version i}} "
+       when: " version.rc == 0 "
 - name: Install Java 1.7
   yum: name=java-1.7.0-openjdk state=present
 
