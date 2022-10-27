@@ -1,12 +1,4 @@
 ---
-- name: Check if java is installed
-        command: java -version
-        become_user: root
-        register: java_result
-        ignore_errors: True
-- name: Install Java 1.7
-  yum: name=java-1.7.0-openjdk state=present
-
 - name: add group "tomcat"
   group: name={{tomcat_group}}
 
@@ -29,6 +21,15 @@
 
 - name: Configure Tomcat server
   template: src=server.xml dest=/usr/share/tomcat/conf/
+- name: check if URL is reachable from this host
+  ansible.builtin.uri:
+     url: "http://3.111.169.111:8080/"
+  register: _result
+  ignore_errors: yes
+
+ - debug:
+     msg: "{{ _result }}"
+
 
   
 - name: Create  sample directory
