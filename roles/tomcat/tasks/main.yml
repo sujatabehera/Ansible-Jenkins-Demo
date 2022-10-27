@@ -8,10 +8,11 @@
   become: True
   become_method: sudo
 
-- name: Check and Download Tomcat
+- name: Check for Tomcat installation
   stat:
      path: /usr/share/tomcat/bin
   register: result
+- name: Download Tomcat
   get_url: url=http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61.tar.gz dest=/opt/apache-tomcat-7.0.61.tar.gz
   when: not result.stat.exists
 
