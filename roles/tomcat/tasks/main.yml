@@ -27,8 +27,8 @@
   register: _result
   ignore_errors: yes
 
- - debug:
-     msg: "{{ _result }}"
+- debug:
+    msg: "{{ _result }}"
 
 
   
