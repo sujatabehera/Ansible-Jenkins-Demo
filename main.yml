@@ -1,3 +1,13 @@
+---
+
+- hosts: all
+  become: true
+  become_user: root
+  gather_facts: false
+  tasks:
+    - include_role:
+        name: java
+        tasks_from: java_installation.yml
         
 - hosts: all
   become: true
