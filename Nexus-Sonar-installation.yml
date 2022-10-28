@@ -11,7 +11,7 @@
     - name: download sonarqube community version 
       shell: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.3.zip
     - name: install unzip
-      apt: name=unzip update_cache=yes state=latest
+      yum: name=unzip update_cache=yes state=latest
     - name: unzip sonarqube 
       shell: unzip sonarqube-7.3.zip
     - name: setup sonatype-work permissions 
