@@ -1,0 +1,21 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - action: ping
+    - name: download nexus 
+      shell: wget https://download.sonatype.com/nexus/oss/nexus-latest-bundle.tar.gz
+    - name: extract nexus nexus-latest-bundle.tar.gz file 
+      shell: tar -xvzf nexus-latest-bundle.tar.gz
+    - name: download sonarqube community version 
+      shell: wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.3.zip
+    - name: install unzip
+      apt: name=unzip update_cache=yes state=latest
+    - name: unzip sonarqube 
+      shell: unzip sonarqube-7.3.zip
+    - name: setup sonatype-work permissions 
+      shell: chown -R ec2-user:ec2-user sonatype-work
+    - name: setup sonarqube permissions 
+      shell: chown R ec2-user:ec2-user sonarqube*
+    - name: setup nexus permissions 
+      shell: chown R ec2-user:ec2-user nexus*
