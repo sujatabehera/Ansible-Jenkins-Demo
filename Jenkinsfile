@@ -7,28 +7,17 @@ pipeline {
     }
      
     stages {
-      stage('checkout') {
+      stage(' SCM checkout') {
            steps {
              
                 git branch: 'master', url: 'https://github.com/sujatabehera/Ansible-Jenkins-Demo.git'
              
           }
         }
-         stage('Tools Init') {
-            steps {
-                script {
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-               def tfHome = tool name: 'Ansible'
-                env.PATH = "${tfHome}:${env.PATH}"
-                 sh 'ansible --version'
-                    
-            }
-            }
-        }
+         
      
         
-         stage('Execute Maven') {
+         stage('Build') {
            steps {
              
                 sh 'mvn package'             
@@ -40,7 +29,7 @@ pipeline {
         
         
         
-        stage('Ansible Deploy') {
+        stage('Deploy War file to tomcat server using ansible') {
              
             steps {
                  
