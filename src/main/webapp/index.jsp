@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <td><input type="submit" value="Login" /></td>
-                        <td><input type="Demo" value="Demo" /></td>
+                        <td><input type="Reset" value="Reset" /></td>
                     </tr>
                     <tr>
                         <td colspan="2">New User <a href="register.jsp">Register Here</a></td>
