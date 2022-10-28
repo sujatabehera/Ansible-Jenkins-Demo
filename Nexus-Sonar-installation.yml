@@ -1,6 +1,7 @@
 ---
 - hosts: all
-  sudo: yes
+  become: true
+  gather_facts: false
   tasks:
     - action: ping
     - name: download nexus 
