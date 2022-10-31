@@ -246,8 +246,8 @@ under the License.
      <repositories>
        <repository>
          <id>nexus-snapshot-repo</id>
-         <name>your custom repo</name>
-         <url>http://35.188.22.253:8081/repository/maven-snapshots/</url>
+         <name>LTI Demo</name>
+         <url>http://13.232.81.82:8081/repository/maven-snapshots/</url>
        </repository>
 	   
      </repositories>
@@ -257,8 +257,8 @@ under the License.
      <repositories>
        <repository>
          <id>nexus-release-repo</id>
-         <name>your custom repo</name>
-         <url>/</url>
+         <name>LTI Demo</name>
+         <url>http://13.232.81.82:8081/repository</url>
        </repository>
      </repositories>
    </profile>
