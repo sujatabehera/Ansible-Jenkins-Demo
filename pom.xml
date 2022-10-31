@@ -21,8 +21,7 @@
   </dependencies>
   
   <distributionManagement>
-	
-	    <repository>
+        <repository>
 	      <id>nexus</id>
 	      <name>Sujata Nexus Repository</name>
 	      <url><distributionManagement>
@@ -38,8 +37,9 @@
 	      <name>Snapshot Nexus Repository </name>
 	      <url>http://13.232.81.82:8081/repository/maven-snapshots/</url>
 	    </snapshotRepository>
-	    
-	</distributionManagement>
+     
+  </distributionManagement>
+
   
   <build>
   <pluginManagement>
