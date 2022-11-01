@@ -54,7 +54,7 @@
   
 
 - name: copy war file
-  copy: src=./target/LoginWebApp-{{BUILD_NUMBER}}.war dest=/opt/apache-tomcat-7.0.61/webapps/
+  copy: src=./target/LoginWebApp-${params.build}.war dest=/opt/apache-tomcat-7.0.61/webapps/
 
 
   notify: restart tomcat
