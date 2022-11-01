@@ -100,7 +100,7 @@ pipeline {
              
                
                // sh "ansible-playbook main.yml -i inventories/dev/hosts --user devops --key-file Demo.pem"
-               ansiblePlaybook credentialsId: 'Private-key', disableHostKeyChecking: true, extras: 'JENKINS_BUILD_NUMBER=${BUILD_NUMBER}', installation: 'Ansible', inventory: 'dev.inv', playbook: 'main.yml'
+               ansiblePlaybook credentialsId: 'Private-key', disableHostKeyChecking: true, extras: '${BUILD_NUMBER}', installation: 'Ansible', inventory: 'dev.inv', playbook: 'main.yml'
 
                
             
