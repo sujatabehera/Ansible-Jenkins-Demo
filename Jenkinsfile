@@ -36,10 +36,10 @@ pipeline {
         -D sonar.language=java \
         -D sonar.tests=src/main \
         -D sonar.host.url=http://13.127.148.200:9000/"""
-    sh """ mvn sonar:sonar \
-  -Dsonar.projectKey=project \
-  -Dsonar.host.url=http://ec2-3-109-186-92.ap-south-1.compute.amazonaws.com:9000 \
-  -Dsonar.login=241b9c6a8fb9e7ce2f06c6b6fe7816d62b9629b6 """
+  //  sh """ mvn sonar:sonar \ 
+ // -Dsonar.projectKey=project \
+ // -Dsonar.host.url=http://13.127.148.200:9000 \
+ // -Dsonar.login=241b9c6a8fb9e7ce2f06c6b6fe7816d62b9629b6 """
             }
                     
                     }
