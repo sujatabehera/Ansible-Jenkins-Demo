@@ -30,7 +30,7 @@ pipeline {
      -D sonar.projectVersion=1.0-SNAPSHOT \
      -D sonar.login=admin \
       -D sonar.password=admin \
-      -D sonar.projectBaseDir=/var/lib/jenkins/workspace/Sonar-Jenkins-Demo/ \
+      -D sonar.projectBaseDir=/var/lib/jenkins/workspace/Deploy-To-Tomcat/ \
         -D sonar.projectKey=project \
         -D sonar.sourceEncoding=UTF-8 \
         -D sonar.language=java \
