@@ -93,9 +93,9 @@
               <goals>
                 <goal>set</goal>
               </goals>
-              <phase>validate</phase>
+              <phase>package</phase>
               <configuration>
-                <newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}</newVersion>
+                <newVersion>0.0.0</newVersion>
               </configuration>
             </execution>
           </executions>
@@ -123,7 +123,7 @@
               </goals>
               <phase>validate</phase>
               <configuration>
-                <newVersion>${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}.0</newVersion>
+                <newVersion>1.0.0</newVersion>
               </configuration>
             </execution>
           </executions>
@@ -151,7 +151,7 @@
               </goals>
               <phase>validate</phase>
               <configuration>
-                <newVersion>${parsedVersion.nextMajorVersion}.0.0</newVersion>
+                <newVersion>1.0.0</newVersion>
               </configuration>
             </execution>
           </executions>
