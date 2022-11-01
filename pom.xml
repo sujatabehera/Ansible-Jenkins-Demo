@@ -93,9 +93,9 @@
               <goals>
                 <goal>set</goal>
               </goals>
-              <phase>package</phase>
+              <phase>validate</phase>
               <configuration>
-                <newVersion>0.0.0</newVersion>
+                <newVersion>0.0.0:${env.VERSION}</newVersion>
               </configuration>
             </execution>
           </executions>
