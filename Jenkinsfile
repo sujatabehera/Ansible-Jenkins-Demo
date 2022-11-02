@@ -38,7 +38,7 @@ pipeline {
         -D sonar.host.url=http://13.127.148.200:9000/"""
   //  sh """ mvn sonar:sonar \ 
  // -Dsonar.projectKey=project \
- // -Dsonar.host.url=http://13.127.148.200:9000 \
+ // -Dsonar.host.url=http://13.234.238.230:9000 \
  // -Dsonar.login=241b9c6a8fb9e7ce2f06c6b6fe7816d62b9629b6 """
             }
                     
