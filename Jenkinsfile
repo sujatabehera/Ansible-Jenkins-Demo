@@ -8,7 +8,7 @@ pipeline {
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "43.205.206.161:8081"
+        NEXUS_URL = "172.31.34.169:8081"
         NEXUS_REPOSITORY = "MyApp"
         NEXUS_CREDENTIAL_ID = "Nexus"
     }
@@ -35,7 +35,7 @@ pipeline {
         -D sonar.sourceEncoding=UTF-8 \
         -D sonar.language=java \
         -D sonar.tests=src/main \
-        -D sonar.host.url=http://13.234.238.230:9000/"""
+        -D sonar.host.url=http://172.31.34.76:9000/"""
   //  sh """ mvn sonar:sonar \ 
  // -Dsonar.projectKey=project \
  // -Dsonar.host.url=http://13.234.238.230:9000 \
