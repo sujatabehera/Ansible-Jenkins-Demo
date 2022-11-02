@@ -1,0 +1,28 @@
+---
+- name: Nexus Repo
+  uri:
+    url: http://43.205.206.161:8081/
+    return_content: yes
+  register: ip_response
+
+
+- name: Check for Nexus latest directory
+  version: latest
+  stat:
+     path: http://43.205.206.161:8081/com/ltidevops/LoginWebApp/31
+  register: result
+- name: upload war file
+  copy: src=http://43.205.206.161:8081/com/ltidevops/LoginWebApp/31/*.war dest=/opt/apache-tomcat-7.0.61/webapps/
+  
+  when: result.stat.exists
+
+  notify: restart tomcat
+
+- name: Install Tomcat init script
+  copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
+
+- name: Start Tomcat
+  service: name=tomcat state=started enabled=yes
+
+- name: wait for tomcat to start
+  wait_for: port={{http_port}}
