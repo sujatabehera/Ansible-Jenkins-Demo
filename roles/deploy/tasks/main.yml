@@ -8,9 +8,6 @@
 
 - name: Check for Nexus latest directory
   version: latest
-  stat:
-     path: http://43.205.206.161:8081/com/ltidevops/LoginWebApp/31
-  register: result
 - name: upload war file
   copy: src=http://43.205.206.161:8081/com/ltidevops/LoginWebApp/31/*.war dest=/opt/apache-tomcat-7.0.61/webapps/
   
