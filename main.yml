@@ -15,8 +15,7 @@
   tasks:
     - include_role:
         name: tomcat
-        env: 
-          JENKINS_BUILD_NUMBER="{{BUILD_NUMBER}}"
+        
  
   
       
