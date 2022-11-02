@@ -54,8 +54,6 @@
   
 
 - name: copy war file
-  env: 
-    JENKINS_BUILD_NUMBER="{{BUILD_NUMBER}}"
   copy: src=./target/LoginWebApp-{{JENKINS_BUILD_NUMBER}}.war dest=/opt/apache-tomcat-7.0.61/webapps/
 
 
