@@ -54,7 +54,7 @@
   
 
 - name: copy war file
-  copy: src=http://43.205.206.161:8081/com/ltidevops/LoginWebApp/31/LoginWebApp-31.war dest=/opt/apache-tomcat-7.0.61/webapps/
+  copy: src=http://43.205.206.161:8081/#browse/browse:MyApp:com%2Fltidevops%2FLoginWebApp%2F31%2FLoginWebApp-31.war dest=/opt/apache-tomcat-7.0.61/webapps/
 
 
   notify: restart tomcat
