@@ -35,10 +35,10 @@ pipeline {
         -D sonar.sourceEncoding=UTF-8 \
         -D sonar.language=java \
         -D sonar.tests=src/main \
-        -D sonar.host.url=http://172.31.34.76:9000/"""
+        -D sonar.host.url=http://172.31.47.101:9000/"""
   //  sh """ mvn sonar:sonar \ 
  // -Dsonar.projectKey=project \
- // -Dsonar.host.url=http://13.234.238.230:9000 \
+ // -Dsonar.host.url=http://172.31.47.101:9000 \
  // -Dsonar.login=241b9c6a8fb9e7ce2f06c6b6fe7816d62b9629b6 """
             }
                     
