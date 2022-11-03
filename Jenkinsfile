@@ -46,8 +46,8 @@ pipeline {
         }
 
         }
-         stage('QualityGates Analysis')
-             steps{
+         stage('QualityGates Analysis'){}
+            steps{
                 waitForQualityGate abortPipeline: true
             }
         }
