@@ -46,12 +46,12 @@ pipeline {
         }
 
         }
-         stage('QualityGates Analysis'){}
+      stage('QualityGates Analysis'){
             steps{
                 waitForQualityGate abortPipeline: true
             }
         }
-         stage('Build and package war file') {
+      stage('Build and package war file') {
            steps {
              
                 sh 'mvn package -DskipTests=true -DbumpPatch'             
@@ -111,4 +111,4 @@ pipeline {
             }
         }
     }
-
+}
