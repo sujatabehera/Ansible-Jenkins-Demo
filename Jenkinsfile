@@ -46,7 +46,11 @@ pipeline {
         }
 
         }
-        
+         stage('QualityGates Analysis')
+             steps{
+                waitForQualityGate abortPipeline: true
+            }
+        }
          stage('Build and package war file') {
            steps {
              
