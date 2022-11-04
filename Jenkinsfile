@@ -34,7 +34,7 @@ pipeline {
         -D sonar.projectKey=project \
         -D sonar.sourceEncoding=UTF-8 \
         -D sonar.language=java \
-        -D sonar.tests=src/main \
+        -D sonar.sources=src/main \
         -D sonar.host.url=http://172.31.47.101:9000/"""
   //  sh """ mvn sonar:sonar \ 
  // -Dsonar.projectKey=project \
