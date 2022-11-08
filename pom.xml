@@ -43,7 +43,7 @@
             </plugins>
         </pluginManagement>
   <plugins>
-    
+      
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -53,6 +53,10 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <name>Maven Wagon plugin</name>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -128,16 +132,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-    <metadata modelVersion="1.1.0">
-  <groupId>org.codehaus.mojo</groupId>
-  <plugins>
-    <plugin>
-      <name>Maven Wagon plugin</name>
-      <prefix>wagon</prefix>
-      <artifactId>wagon-maven-plugin</artifactId>
-    </plugin>
-  </plugins>
-</metadata>      
+       
 
           <executions>
             <execution>
