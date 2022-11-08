@@ -53,11 +53,7 @@
                     </archive>
                 </configuration>
             </plugin>
-            <plugin>
-                <name>Maven Wagon plugin</name>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>wagon-maven-plugin</artifactId>
-            <plugin>
+        
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
@@ -175,6 +171,40 @@
           </executions>
         </plugin>
       </plugins>
+      <metadata xmlns="http://maven.apache.org/METADATA/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/METADATA/1.1.0 http://maven.apache.org/xsd/metadata-1.1.0.xsd"
+  modelVersion=.. >
+  <groupId/>
+  <artifactId/>
+  <version/>
+  <versioning>
+    <latest/>
+    <release/>
+    <snapshot>
+      <timestamp/>
+      <buildNumber/>
+      <localCopy/>
+    </snapshot>
+    <versions/>
+    <lastUpdated/>
+    <snapshotVersions>
+      <snapshotVersion>
+        <classifier/>
+        <extension/>
+        <value/>
+        <updated/>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+
+  <plugins>
+    <plugin>
+      <name/>
+      <prefix/>
+      <artifactId/>
+    </plugin>
+  </plugins>
+</metadata>
     </build>
   </profile>
 </profiles>
