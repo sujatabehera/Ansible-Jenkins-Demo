@@ -4,7 +4,7 @@
   <groupId>com.ltidevops</groupId>
   <artifactId>LoginWebApp</artifactId>
   <packaging>war</packaging>
-  <version>1</version>
+  <version>2</version>
   <name>LoginWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -19,9 +19,26 @@
             <version>5.1.30</version>
         </dependency>
   </dependencies>
-  
-  
-  
+  <distributionManagement>
+
+          <repository>
+
+
+              <id>nexus</id>
+              <name>Mithun Technologies Releases Nexus Repository</name>
+              <url>http://13.233.128.51:8081/repository/maven-releases/</url>
+            </repository>
+
+            <snapshotRepository>
+              <id>nexus</id>
+              <name>Mithun Technologies Snapshot Nexus Repository </name>
+              <url>http://13.233.128.51:8081/repository/maven-snapshots/</url>
+            </snapshotRepository>
+
+        </distributionManagement>
+
+
+
   <build>
   <pluginManagement>
    <plugins>
@@ -36,6 +53,10 @@
                     <version>2.4</version>
                 </plugin>
                 <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>2.1.2</version>
@@ -43,7 +64,7 @@
             </plugins>
         </pluginManagement>
   <plugins>
-      
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -53,7 +74,7 @@
                     </archive>
                 </configuration>
             </plugin>
-        
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
@@ -67,16 +88,11 @@
     <repositories>
         <repository>
             <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
+                <enabled>false</enabled>
             </snapshots>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </releases>
-            <id>Nexus</id>
-            
-            <url>http://3.108.223.158:8081/</url>
+            <id>central</id>
+            <name>bintray</name>
+            <url>https://jcenter.bintray.com</url>
         </repository>
     </repositories>
 <profiles>
@@ -100,7 +116,7 @@
               </goals>
               <phase>validate</phase>
               <configuration>
-                <newVersion>${env.BUILD_NUMBER}</newVersion>
+                <newVersion>0.0.0.${env.BUILD_NUMBER}</newVersion>
               </configuration>
             </execution>
           </executions>
@@ -118,17 +134,8 @@
     <build>
       <plugins>
         <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-       
 
           <executions>
             <execution>
@@ -171,40 +178,6 @@
           </executions>
         </plugin>
       </plugins>
-      <metadata xmlns="http://maven.apache.org/METADATA/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/METADATA/1.1.0 http://maven.apache.org/xsd/metadata-1.1.0.xsd"
-  modelVersion=.. >
-  <groupId/>
-  <artifactId/>
-  <version/>
-  <versioning>
-    <latest/>
-    <release/>
-    <snapshot>
-      <timestamp/>
-      <buildNumber/>
-      <localCopy/>
-    </snapshot>
-    <versions/>
-    <lastUpdated/>
-    <snapshotVersions>
-      <snapshotVersion>
-        <classifier/>
-        <extension/>
-        <value/>
-        <updated/>
-      </snapshotVersion>
-    </snapshotVersions>
-  </versioning>
-
-  <plugins>
-    <plugin>
-      <name/>
-      <prefix/>
-      <artifactId/>
-    </plugin>
-  </plugins>
-</metadata>
     </build>
   </profile>
 </profiles>
