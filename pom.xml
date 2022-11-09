@@ -4,7 +4,7 @@
   <groupId>com.ltidevops</groupId>
   <artifactId>LoginWebApp</artifactId>
   <packaging>war</packaging>
-  <version>${env.BUILD_NUMBER}</version>
+  <version>1</version>
   <name>LoginWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -22,13 +22,13 @@
   <distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://13.233.128.51:8081/repository/maven-releases/</url>
+	      <name>SujataReleases Nexus Repository</name>
+	      <url>http://13.233.128.51:8081/repository/MyLoginApp/</url>
 	    </repository> 
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://13.233.128.51:8081/repository/maven-snapshots/</url>
+	      <name>SujataSnapshot Nexus Repository </name>
+	      <url>http://13.233.128.51:8081/repository/MyLoginApp/</url>
 	    </snapshotRepository>       
   </distributionManagement>
   
