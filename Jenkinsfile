@@ -50,7 +50,7 @@ pipeline {
         stage("Maven Build") {
             steps {
                 script {
-                    sh "mvn deploy -s settings.xml -DbumpPatch"
+                    sh "mvn clean deploy -s settings.xml -DbumpPatch"
                     
                 }
             }
