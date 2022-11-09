@@ -15,7 +15,8 @@
   tasks:
     - include_role:
         name: tomcat
- - hosts: all
+        
+- hosts: all
   become: true
   become_user: root
   gather_facts: false
