@@ -20,25 +20,23 @@
         </dependency>
   </dependencies>
   <distributionManagement>
-
-          <repository>
-
-
-              <id>nexus</id>
-              <name>Mithun Technologies Releases Nexus Repository</name>
-              <url>http://13.233.128.51:8081/repository/maven-releases/</url>
-            </repository>
-
-            <snapshotRepository>
-              <id>nexus</id>
-              <name>Mithun Technologies Snapshot Nexus Repository </name>
-              <url>http://13.233.128.51:8081/repository/maven-snapshots/</url>
-            </snapshotRepository>
-
-        </distributionManagement>
-
-
-
+	
+	    <repository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Releases Nexus Repository</name>
+	      <url>http://13.233.128.51:8081/repository/maven-releases/</url>
+	    </repository>
+	    
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Snapshot Nexus Repository </name>
+	      <url>http://13.233.128.51:8081/repository/maven-snapshots/</url>
+	    </snapshotRepository>
+	    
+	</distributionManagement>
+  
+  
+  
   <build>
   <pluginManagement>
    <plugins>
@@ -64,7 +62,7 @@
             </plugins>
         </pluginManagement>
   <plugins>
-
+    
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
