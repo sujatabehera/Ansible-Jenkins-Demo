@@ -111,7 +111,7 @@
               </goals>
               <phase>validate</phase>
               <configuration>
-                <newVersion>0.0.0.${env.BUILD_NUMBER}</newVersion>
+                <newVersion>${env.BUILD_NUMBER}</newVersion>
               </configuration>
             </execution>
           </executions>
