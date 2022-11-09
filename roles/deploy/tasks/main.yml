@@ -1,5 +1,5 @@
 ---
-- name: Download Nexus artifact
+- name: Upload War file from Nexus to Tomcat
   maven_artifact:
 
       group_id: com.ltidevops
