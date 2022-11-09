@@ -33,7 +33,7 @@
 	      <url>http://13.233.128.51:8081/repository/maven-snapshots/</url>
 	    </snapshotRepository>
 	    
-	</distributionManagement>
+  </distributionManagement>
   
   
   
