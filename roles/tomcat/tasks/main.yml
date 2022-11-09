@@ -52,27 +52,3 @@
     mode: 0777
   become: true
    
-- name: Download Nexus artifact
-  maven_artifact:
-
-      group_id: com.ltidevops
-      artifact_id: LoginWebApp
-      version: latest
-      extension: war
-      repository_url: 'http://13.233.128.51:8081/repository/maven-releases/'
-      username: admin
-      password: admin123
-      dest: /opt/apache-tomcat-7.0.61/webapps/
-
-
-
-  notify: restart tomcat
-
-- name: Install Tomcat init script
-  copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
-
-- name: Start Tomcat
-  service: name=tomcat state=started enabled=yes
-
-- name: wait for tomcat to start
-  wait_for: port={{http_port}}
