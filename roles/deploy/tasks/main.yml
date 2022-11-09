@@ -9,7 +9,7 @@
       repository_url: 'http://13.233.128.51:8081/repository/maven-releases/'
       username: admin
       password: admin123
-      dest: /opt/apache-tomcat-7.0.61/webapps/LoginWebApp.war
+      dest: /opt/apache-tomcat-7.0.61/webapps/
 
 
 
