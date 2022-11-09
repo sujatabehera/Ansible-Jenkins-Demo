@@ -51,10 +51,19 @@
     state: directory
     mode: 0777
   become: true
-  
+   
+- name: Download Nexus artifact
+  maven_artifact:
 
-- name: copy war file
-  copy: src=./target/LoginWebApp-1.war dest=/opt/apache-tomcat-7.0.61/webapps/
+      group_id: com.ltidevops
+      artifact_id: LoginWebApp
+      version: latest
+      extension: war
+      repository_url: 'http://13.233.128.51:8081/repository/maven-releases/'
+      username: admin
+      password: admin123
+      dest: /opt/apache-tomcat-7.0.61/webapps/
+
 
 
   notify: restart tomcat
