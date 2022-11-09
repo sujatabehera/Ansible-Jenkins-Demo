@@ -1,35 +1,61 @@
 pipeline {
     agent any
-    
-    tools
-    {
-       maven "Maven"
+    tools {
+        maven "Maven"
     }
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "172.31.34.169:8081"
-        NEXUS_REPOSITORY = "MyApp"
+        NEXUS_URL = "13.233.128.51:8081"
+        NEXUS_REPOSITORY = "maven-releases"
         NEXUS_CREDENTIAL_ID = "Nexus"
     }
-     
     stages {
-      stage(' SCM checkout') {
-           steps {
-             
-                git branch: 'Test', url: 'https://github.com/sujatabehera/Ansible-Jenkins-Demo.git'
-             
-          }
+        stage("Clone code from GitHub") {
+            steps {
+                script {
+                    git branch: 'Test', url: 'https://github.com/sujatabehera/Ansible-Jenkins-Demo.git';
+                }
+            }
         }
-         
-      
-      stage('Build and package war file') {
-           steps {
-             
-                sh 'mvn clean deploy -s settings.xml -DbumpPatch'             
-          }
+        stage("Sonar Analysis") {
+             steps {
+                script {
+            withSonarQubeEnv('SonarQube') {
+        sh """/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqube/bin/sonar-scanner \
+     -D sonar.projectVersion=1.0-SNAPSHOT \
+     -D sonar.login=admin \
+      -D sonar.password=admin \
+      -D sonar.projectBaseDir=/var/lib/jenkins/workspace/${env.JOB_NAME}/ \
+        -D sonar.projectKey=project \
+        -D sonar.sourceEncoding=UTF-8 \
+        -D sonar.language=xml \
+        -D sonar.sources=src/main \
+        -D sonar.host.url=http://172.31.47.101:9000/"""
+  //  sh """ mvn sonar:sonar \ 
+ // -Dsonar.projectKey=project \
+ // -Dsonar.host.url=http://172.31.47.101:9000 \
+ // -Dsonar.login=241b9c6a8fb9e7ce2f06c6b6fe7816d62b9629b6 """
+            }
+                    
+                    }
         }
-        stage("Publish war file to Nexus Repository Manager") {
+
+        }
+      stage('QualityGates Analysis'){
+            steps{
+                waitForQualityGate abortPipeline: true
+            }
+        }
+        stage("Maven Build") {
+            steps {
+                script {
+                    sh "mvn deploy -s settings.xml -DbumpPatch"
+                    
+                }
+            }
+        }
+        stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
                     pom = readMavenPom file: "pom.xml";
@@ -64,11 +90,6 @@ pipeline {
                 }
             }
         }
-        
-         
-        
-        
-        
         stage('Deploy War file from Nexus to tomcat server using ansible') {
              
             steps {
