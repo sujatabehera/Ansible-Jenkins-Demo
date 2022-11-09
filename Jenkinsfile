@@ -54,7 +54,7 @@ pipeline {
       stage('Build and package war file') {
            steps {
              
-                sh 'mvn package -DskipTests=true -DbumpPatch'             
+                sh 'mvn deploy -s settings.xml -DbumpPatch'             
           }
         }
         stage("Publish war file to Nexus Repository Manager") {
