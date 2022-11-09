@@ -17,7 +17,7 @@ pipeline {
       stage(' SCM checkout') {
            steps {
              
-                git branch: 'Demo', url: 'https://github.com/sujatabehera/Ansible-Jenkins-Demo.git'
+                git branch: 'Test', url: 'https://github.com/sujatabehera/Ansible-Jenkins-Demo.git'
              
           }
         }
@@ -26,7 +26,7 @@ pipeline {
       stage('Build and package war file') {
            steps {
              
-                sh 'mvn deploy -s settings.xml'             
+                sh 'mvn clean deploy -s settings.xml -DbumpPatch'             
           }
         }
         stage("Publish war file to Nexus Repository Manager") {
