@@ -1,17 +1,17 @@
 ---
-- name: Nexus Repo
-  uri:
-    url: http://43.205.206.161:8081/
-    return_content: yes
-  register: ip_response
+- name: Download Nexus artifact
+  maven_artifact:
+
+      group_id: com.ltidevops
+      artifact_id: LoginWebApp
+      version: latest
+      extension: war
+      repository_url: 'http://13.233.128.51:8081/repository/maven-releases/'
+      username: admin
+      password: admin123
+      dest: /opt/apache-tomcat-7.0.61/webapps/
 
 
-- name: Check for Nexus latest directory
-  version: latest
-- name: upload war file
-  copy: src=http://43.205.206.161:8081/com/ltidevops/LoginWebApp/31/*.war dest=/opt/apache-tomcat-7.0.61/webapps/
-  
-  when: result.stat.exists
 
   notify: restart tomcat
 
