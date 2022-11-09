@@ -8,7 +8,9 @@ regarding copyright ownership.  The ASF licenses this file
 to you under the Apache License, Version 2.0 (the
 "License"); you may not use this file except in compliance
 with the License.  You may obtain a copy of the License at
+
     http://www.apache.org/licenses/LICENSE-2.0
+
 Unless required by applicable law or agreed to in writing,
 software distributed under the License is distributed on an
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -115,11 +117,11 @@ under the License.
      |       used together.
      |-->
     <server>
-      <id>nexusdeploymentrepo</id>
+      <id>nexus</id>
       <username>admin</username>
-      <password>admin</password>
+      <password>admin123</password>
     </server>
-    
+
 
     <!-- Another sample, using keys to authenticate.
     <server>
@@ -191,9 +193,11 @@ under the License.
      | This profile example uses the JDK version to trigger activation, and provides a JDK-specific repo.
     <profile>
       <id>jdk-1.4</id>
+
       <activation>
         <jdk>1.4</jdk>
       </activation>
+
       <repositories>
         <repository>
           <id>jdk14</id>
@@ -225,7 +229,7 @@ under the License.
      | NOTE: If you just wanted to inject this configuration whenever someone set 'target-env' to
      |       anything, you could just leave off the <value/> inside the activation-property.
      |
-	 -->
+         -->
     <profile>
       <id>env-dev</id>
 
@@ -240,16 +244,16 @@ under the License.
         <tomcatPath>/path/to/tomcat/instance</tomcatPath>
       </properties>
     </profile>
-	
-	<profile>
+
+        <profile>
      <id>snapshot</id>
      <repositories>
        <repository>
          <id>nexus-snapshot-repo</id>
-         <name>LTI Demo</name>
-         <url>http://13.232.81.82:8081/repository/maven-snapshots/</url>
+         <name>your custom repo</name>
+         <url>http://13.233.128.51:8081/service/rest/repository/browse/maven-releases/</url>
        </repository>
-	   
+
      </repositories>
    </profile>
     <profile>
@@ -257,12 +261,12 @@ under the License.
      <repositories>
        <repository>
          <id>nexus-release-repo</id>
-         <name>LTI Demo</name>
-         <url>http://13.232.81.82:8081/repository</url>
+         <name>your custom repo</name>
+         <url>http://13.233.128.51:8081/service/rest/repository/browse/maven-releases/</url>
        </repository>
      </repositories>
    </profile>
-    
+
   </profiles>
 
   <!-- activeProfiles
