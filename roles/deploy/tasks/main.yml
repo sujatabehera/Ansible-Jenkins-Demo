@@ -9,10 +9,10 @@
       repository_url: 'http://13.233.128.51:8081/repository/maven-releases/'
       username: admin
       password: admin123
-      dest: /tmp/LoginWebApp-latest.war
+      dest: ./target/LoginWebApp-latest.war
 
 - name: copy war file
-  copy: src=/tmp/LoginWebApp-latest.war dest=/opt/apache-tomcat-7.0.61/webapps/
+  copy: src=./target/LoginWebApp-latest.war dest=/opt/apache-tomcat-7.0.61/webapps/
 
   notify: restart tomcat
 
