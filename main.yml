@@ -15,6 +15,15 @@
   tasks:
     - include_role:
         name: tomcat
+ - hosts: all
+  become: true
+  become_user: root
+  gather_facts: false
+  tasks:
+    - include_role:
+        name: deploy
+        tasks_from: main.yml
+        
 
 
 
