@@ -4,7 +4,7 @@
   <groupId>com.ltidevops</groupId>
   <artifactId>LoginWebApp</artifactId>
   <packaging>war</packaging>
-  <version>2</version>
+  <version>${env.BUILD_NUMBER}</version>
   <name>LoginWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
